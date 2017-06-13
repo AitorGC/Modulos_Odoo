@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="gestion.list_piezas_tree">
+      <field name="name">Piezas</field>
+      <field name="model">gestion.pieza</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name='codigoPieza'/>
+          <field name='nombrePieza'/>
+          <field name='tipoPieza'/>
+          <field name='precioPieza'/>
+          <field name='empleadoCoge'/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- form view -->
+    <record model="ir.ui.view" id="gestion.list_piezas_form">
+      <field name="name">Piezas</field>
+      <field name="model">gestion.pieza</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name='codigoPieza'/>
+                    <field name='nombrePieza'/>
+                    <field name='tipoPieza'/>
+                    <field name='precioPieza'/>
+                    <field name='empleadoCoge'/>
+                </group>
+            </sheet>                
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="gestion.action_window_pieza">
+      <field name="name">Listado de Piezas</field>
+      <field name="res_model">gestion.pieza</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Piezas" id="gestion.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Piezas" id="gestion.segundoMenu" parent="gestion.menu_root"/>
+    <menuitem name="Empleados" id="gestion.primerMenu" parent="gestion.menu_root"/>
+    
+    <!-- actions -->
+    
+    <menuitem name="Listado" id="gestion.gestion_list" parent="gestion.segundoMenu" action="gestion.action_window_pieza"/>
+    
+  </data>
+</odoo>

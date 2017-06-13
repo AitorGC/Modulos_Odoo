@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+    <record model="ir.ui.view" id="gestion.list_empleados_tree">
+        <field name="name"> Lista de empleados </field>
+        <field name="model">gestion.empleado</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name='nombre'/>
+                <field name='apellidos'/>
+                <field name='domicilio'/>
+                <field name='codigoEmp'/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="gestion.list_empleados_form">
+      <field name="name">Empleados</field>
+      <field name="model">gestion.empleado</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name='nombre'/>
+                    <field name='apellidos'/>
+                    <field name='domicilio'/>
+                    <field name='codigoEmp'/>
+                </group>
+            </sheet>                
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="gestion.action_window_empleado">
+        <field name="name">Ventana Empleados</field>
+        <field name="res_model">gestion.empleado</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="Empleado" id="gestion.empleado" parent="gestion.menu_root"/>
+
+    <menuitem name="Listado" id="gestion.empleado_list" parent="gestion.empleado" action="gestion.action_window_empleado"/>
+
+    </data>
+</odoo>
